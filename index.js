@@ -9,6 +9,12 @@ const filename = __dirname + "/scannedbarcodes.json";
 app.use(express.json()); 
 app.use(cors()); 
 
+// Middleware für Fehlerprotokollierung
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Internal Server Error');
+});
+
 function log(req, res, next) {
     console.log(`${req.method} Request at ${req.url}`);
     next();
