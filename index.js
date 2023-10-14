@@ -16,10 +16,13 @@ function log(req, res, next) {
 app.use(log);
 
 // Endpoints
-app.get("/barcodes", function (req, res) {
+/*app.get("/barcodes", function (req, res) {
     fs.readFile(filename, "utf8", function (err, data) {
         res.json(JSON.parse(data));
     });
+});*/
+app.get('/',function (req, res){
+return res.send("Hellow World!");
 });
 
 app.get("/barcodes/:id", function (req, res) {
